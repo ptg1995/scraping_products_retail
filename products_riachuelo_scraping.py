@@ -7,6 +7,7 @@ class BoiaScraper:
     NUMBER_OF_PAGES = 40
     headers = {
         'x-api-key': 'KhMO3jH1hsjvSRzQXNfForv5FrnfSpX6StdqMmjncjGivPBj3MS4kFzRWn2j7MPn',
+        ## Infelizmente esse token só dura 1 hora, quando for rodar o código é necessário pegar o token na página.
         'x-app-token': 'eyJraWQiOiJLZ1NcLytSZFlwVWJYTkJzbUs0NXNJS0poZjQwUmVoNndhQWtYSW1COGNVZz0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI5MzE4NzZhZS0yN2NhLTQ2ODMtOTFkNy1hZjIzMzExYTI4M2EiLCJhdWQiOiIzZms4aGg1aHA4NTRyaGNiaG1wMjQxbGRwMSIsImV2ZW50X2lkIjoiZDA2YzU3Y2MtOWI1MC00YmIyLWJlZGItMTI4NmViNzAwYTc0IiwidG9rZW5fdXNlIjoiaWQiLCJhdXRoX3RpbWUiOjE2NjMwMjE3MzcsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy1lYXN0LTEuYW1hem9uYXdzLmNvbVwvdXMtZWFzdC0xX1V1ZkUySFlXayIsIm5hbWUiOiJFLWNvbW1lcmNlIFdFQiAtIFBSRCIsIm5pY2tuYW1lIjoiYmY2MGNiOTEtYTg2ZC00YTY4LTg2ZWItNDY4NTViNDczOGM4IiwiY29nbml0bzp1c2VybmFtZSI6IjV0cVoyS0p2YlRld1dsOGpCYVU4OFVXeEJxZU5DR01RIiwiZXhwIjoxNjYzMDI1MzM3LCJpYXQiOjE2NjMwMjE3Mzd9.Iu-W9Y7UwrQp4ofqLGRx_lQYasbl5OgnpTpqjJEymxkNZ_w7Rjm3ZjELs23OMasZCrnQuD5AjrhBOoqeRRWVIdNIEUBk3bdsoao3AwgBAH4tIzQ7i8KJ4_2BF49SUHs1sLS22DQoYDN-FBQZNopcAnRVy3lmaRFS__VtEhlM9X2TnZSJBCOGdiOtKzD2Wa0xJoZOA7a8GMEzNIauh3CtQ6sh8wDRxqlGMvz89UY20nwTO0XtW00GEhm0XkVtkPcklz1Cty3hxZWO1Yw5QubLlhEQLQVxZXlwRy45nXz9-hojLVBzavTdNqhS4ZJqSHaAML2OFD6l1ggf2TtpYjSM_Q',
         'Accept': 'application/json, text/plain, */*',
         'Content-Type': 'application/json'
@@ -18,7 +19,7 @@ class BoiaScraper:
         self.save_sku_list()
 
     @staticmethod
-    def create_payload_dict(page_number: str | int):
+    def create_payload_dict(page_number: int):
         return json.dumps({
             "includeFilters": False,
             "category": [
